@@ -18,9 +18,20 @@ export class AppComponent implements OnInit {
     ];
   }
 
-    // a method to delete an item
-    deleteTodo(todo: any) {
-      const index = this.todoList.findIndex(todoItem => todoItem === todo);
-      this.todoList.splice(index, 1);
-    }
+  // adds a todo to our list
+  addTodo(): void {
+    this.todoList.push({
+    title: this.todoTitle,
+    isDone: false
+  });
+
+  // resets our todoTitle variable to an empty string
+    this.todoTitle = '';
+}
+  // a method to delete an item
+  deleteTodo(todo: any) {
+    const index = this.todoList.findIndex(todoItem => todoItem === todo);
+    this.todoList.splice(index, 1);
+  }
+
 }
